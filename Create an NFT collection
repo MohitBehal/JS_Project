@@ -1,0 +1,51 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const totalNFTs = [];
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (c_Name, c_id, c_item, c_itemType) {
+    const cust_NFT = {
+        name        :   c_Name,
+        id          :   c_id,
+        item        :   c_item,
+        itemType    :   c_itemType    
+    }
+    totalNFTs.push(cust_NFT);
+    console.log("Minted NFT:\t",c_Name);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+    console.log("\n   ---Customer Details---   ");
+    for (let i = 0; i < totalNFTs.length; i++) {
+        console.log("S.no.        :\t\t",i+1);
+        console.log("Customer Name:\t\t",totalNFTs[i].name);
+        console.log("Customer Id  :\t\t",totalNFTs[i].id);
+        console.log("Item Name    :\t\t",totalNFTs[i].item);
+        console.log("Item Type    :\t\t",totalNFTs[i].itemType,"\n");
+    }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    console.log("Total number of minted NFTS:",totalNFTs.length);
+}
+
+// call your functions below this line
+console.log("   ---MINTED NFTs---   ");
+mintNFT("Mohan",111,"keyboard","Electronic");
+mintNFT("Rohan",112,"Mouse","Electronic");
+mintNFT("Sohan",113,"Car","Toy");
+listNFTs();
+getTotalSupply();
